@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Pathfinding : MonoBehaviour
 {
-    private CustomGrid grid; // CustomGrid 참조
+    private CustomGrid grid; // CustomGrid 스크립트 참조
 
     void Awake()
     {
-        // Grid 컴포넌트를 동적으로 찾기
+        // Grid 스크립트를 동적으로 찾기
         grid = FindObjectOfType<CustomGrid>();
         if (grid == null)
         {
-            Debug.LogError("씬에 CustomGrid 컴포넌트가 없습니다. 적절한 GameObject에 CustomGrid를 추가하세요.");
+            Debug.LogError("씬에 CustomGrid 스크립트가 없습니다. 적절한 GameObject에 CustomGrid 스크립트를 추가하세요.");
         }
     }
 
@@ -20,7 +20,7 @@ public class Pathfinding : MonoBehaviour
         // grid가 null이면 경로 탐색 중단
         if (grid == null)
         {
-            Debug.LogError("CustomGrid가 초기화되지 않았습니다. CustomGrid 컴포넌트를 확인하세요.");
+            Debug.LogError("CustomGrid가 초기화되지 않았습니다. CustomGrid 스크립트를 확인하세요.");
             return null;
         }
 

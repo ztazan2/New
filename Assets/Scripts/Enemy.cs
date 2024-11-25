@@ -6,16 +6,16 @@ public class Enemy : MonoBehaviour
     private List<Node> path; // A* 알고리즘으로 계산된 경로
     private int pathIndex; // 현재 경로에서 이동 중인 노드의 인덱스
     private Transform targetBase; // 적이 목표로 삼는 기지의 Transform
-    private Pathfinding pathfinding; // A* 알고리즘 경로 탐색을 담당하는 Pathfinding 클래스 참조
+    private Pathfinding pathfinding; // A* 알고리즘 경로 탐색을 담당하는 Pathfinding 스크립트 참조
     public float moveSpeed = 3.5f; // 적의 이동 속도
 
-    // Enemy의 초기화 메서드. 목표 기지와 Pathfinding 컴포넌트를 설정합니다.
+    // Enemy의 초기화 메서드. 목표 기지와 Pathfinding 스크립트를 설정합니다.
     // baseTransform: 목표 기지 Transform
-    // pathfindingComponent: Pathfinding 컴포넌트 참조
+    // pathfindingComponent: Pathfinding 스크립트 참조
     public void Initialize(Transform baseTransform, Pathfinding pathfindingComponent)
     {
         targetBase = baseTransform; // 목표 기지 설정
-        pathfinding = pathfindingComponent; // Pathfinding 컴포넌트 설정
+        pathfinding = pathfindingComponent; // Pathfinding 스크립트 설정
 
         // Pathfinding과 TargetBase가 정상적으로 초기화되었는지 확인
         if (pathfinding != null && targetBase != null)
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         else
         {
             // 초기화 실패 시 오류 메시지 출력
-            Debug.LogError("Pathfinding or TargetBase is not properly initialized in Enemy.");
+            Debug.LogError("Pathfinding 스크립트 또는 목표 기지가 Enemy에서 초기화되지 않았습니다.");
         }
     }
 
