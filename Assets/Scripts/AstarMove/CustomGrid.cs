@@ -13,6 +13,7 @@ public class CustomGrid : MonoBehaviour
 
     public List<Node> path; // 계산된 경로를 저장
 
+    public bool isLook = false;
     // 시작 시 그리드를 초기화
     void Start()
     {
@@ -82,19 +83,21 @@ public class CustomGrid : MonoBehaviour
     // 그리드를 시각적으로 표시
     void OnDrawGizmos()
     {
-        // 그리드 전체 영역을 박스로 표시
-        Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
+        if(isLook == false)
+        {// 그리드 전체 영역을 박스로 표시
+            Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
 
-        if (grid != null) // 그리드가 존재할 경우
-        {
-            foreach (Node n in grid)
+            if (grid != null) // 그리드가 존재할 경우 -> 조건을 걸어서  노드를 삭제
             {
-                // 이동 가능 여부에 따라 색상 변경
-                Gizmos.color = n.walkable ? Color.white : Color.red;
-                if (path != null && path.Contains(n)) // 경로에 포함된 노드면 검정색
-                    Gizmos.color = Color.black;
-                // 노드를 박스로 표시
-                Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - 0.1f));
+                foreach (Node n in grid)
+                {
+                    // 이동 가능 여부에 따라 색상 변경
+                    Gizmos.color = n.walkable ? Color.white : Color.red;
+                    if (path != null && path.Contains(n)) // 경로에 포함된 노드면 검정색
+                        Gizmos.color = Color.black;
+                    // 노드를 박스로 표시
+                    Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - 0.1f));
+                }
             }
         }
     }
