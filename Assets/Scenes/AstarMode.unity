@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 130325871}
   - component: {fileID: 130325870}
   m_Layer: 3
-  m_Name: Grid
+  m_Name: CustomGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -366,6 +366,7 @@ MonoBehaviour:
     m_Bits: 8
   gridWorldSize: {x: 30, y: 30}
   nodeRadius: 0.5
+  isLook: 0
 --- !u!4 &130325871
 Transform:
   m_ObjectHideFlags: 0
@@ -512,7 +513,7 @@ Transform:
   m_GameObject: {fileID: 238097794}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.258728, y: 3.4839272, z: -8.689992}
+  m_LocalPosition: {x: -10.5, y: 0, z: -8.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -532,6 +533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 268911190836888670, guid: e2c9215b3012dc046831f5f08fdf638b, type: 3}
   targetBase: {fileID: 1320399739}
+  spawnTransform: {fileID: 238097795}
   spawnInterval: 3
 --- !u!1 &369426203
 GameObject:
@@ -1439,6 +1441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 6323410511895906477, guid: 710e468cf4f08b4478d41af5cd2aa430, type: 3}
   mainCamera: {fileID: 963194227}
+  fixedY: 0.6
 --- !u!1 &2096878812
 GameObject:
   m_ObjectHideFlags: 0

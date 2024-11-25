@@ -13,7 +13,8 @@ public class CustomGrid : MonoBehaviour
 
     public List<Node> path; // 계산된 경로를 저장
 
-    public bool isLook = false;
+    public bool isLook = false; // 노드 표시 여부 
+
     // 시작 시 그리드를 초기화
     void Start()
     {
@@ -83,11 +84,11 @@ public class CustomGrid : MonoBehaviour
     // 그리드를 시각적으로 표시
     void OnDrawGizmos()
     {
-        if(isLook == false)
+        if (isLook == false) // 화면에 노드 표시 여부
         {// 그리드 전체 영역을 박스로 표시
             Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
 
-            if (grid != null) // 그리드가 존재할 경우 -> 조건을 걸어서  노드를 삭제
+            if (grid != null) // 그리드가 존재할 경우 
             {
                 foreach (Node n in grid)
                 {
